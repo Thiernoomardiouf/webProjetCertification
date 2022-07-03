@@ -1,8 +1,19 @@
 <div class="container-fluid page">
-  <div class="d-flex page__box p-3 mt-2">Projet</div>
+  <div class="d-flex page__box p-3 mt-2">Projet <div id="ajout"><a mat-list-item>Ajouter un projet</a></div></div>
   <div class="page__content shadow p-3 position-relative">
     <div class="page__content-data position-absolute text-center">
-      Dashboard Content Goes Here
+     <div class="row row-cols-1 row-cols-md-3">
+      <div class="col mb-4 mx-4" *ngFor="let item of projets">
+        <div class="card text-white">
+          <div class="card-header">Code: {{item.code}}</div>
+          <div class="card-body">
+            <h5 class="card-title">{{item.nom}}</h5>
+            <p class="card-text">Partenaire: {{item.partenaire.nom}}</p>
+            <a mat-list-item (click)="onGetProjet(item)">Voir plus</a>
+          </div>
+        </div>
+      </div>
+     </div>
     </div>
   </div>
 </div>

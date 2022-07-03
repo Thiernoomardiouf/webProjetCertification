@@ -1,0 +1,91 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Projet</div>
+    <div class="page__content shadow p-3">
+      <div class="page__content-data">
+      
+        <div class="container">
+            <div class="row titre">
+                <div class="col-md-6 mt-1">
+                    <h5>Résumé du projet</h5>
+                </div>
+                <div class="col mt-1 ">
+                    <button class="but1">Modifier le projet</button>
+                </div>
+                <div class="col mt-1">
+                    <button class="but2">Fermer le projet</button>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-8 ident" >
+                  Identification du projet
+                </div>
+                <div class="col-md-4 ident">
+                  Avancement global du projet
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-8" >
+                  <div class="row">
+                    <div class="col">
+                        <span>Intitulé du projet :</span>{{projet.nom}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                        <span>Date de début :</span>{{projet.date_debut | date: 'dd/MM/yyyy' }}
+                    </div>
+                    <div class="col">
+                        <span>Date de fin :</span>{{projet.date_fin | date: 'dd/MM/yyyy' }}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                        <span>Cout du projet :</span>{{projet.cout}}
+                    </div>
+                    <div class="col">
+                        <span>Zone d'éxecution :</span>
+                        <em *ngFor="let item of projet.presences">
+                            {{item.zone.libelle}}
+                        </em>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                        <span>Description :</span><br>
+                        {{projet.description}}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  Statistique
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-8 ident" >
+                  Partenaire du projet
+                </div>
+                <div class="col-md-4 ident">
+                  Phases d'éxecution
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-8" >
+                  Le partenaire <em>{{projet.partenaire.nom}}</em> a finacé le projet <br>
+                  <span>Adresse :</span> {{projet.partenaire.adresse}} <br>
+                  <span>Téléphone :</span> {{projet.partenaire.telephone}} <br>
+                  <span>Email :</span> {{projet.partenaire.email}} <br>
+                  <span>Site web :</span> {{projet.partenaire.adresse_web}}
+                </div>
+                <div class="col-md-4">
+                  Les différentes phases du projet:
+                  <ol>
+                    <li *ngFor="let item of projet.phases">{{item.libelle}}</li>
+                  </ol>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  

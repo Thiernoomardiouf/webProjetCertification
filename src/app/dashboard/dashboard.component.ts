@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProjetService } from '../services/projet.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private projService: ProjetService, private router:Router) { }
+
+  projets;
 
   ngOnInit(): void {
+    this.projService.getProjets()
+    .subscribe(data=>{
+      this.projets=data;
+    }), err=>{
+      console.log(err);
+    }
+  }
+
+  onGetProjet(projet){
+    this.router.navigateByUrl("/projet/" + projet.id);
   }
 
 }

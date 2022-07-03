@@ -3,22 +3,44 @@
   padding: 0 1rem;
   background: #f1f5f9;
   &__box {
-    min-height: 120px;
+    min-height: 90px;
     background: #1e293b;
     margin: 0 -1rem;
-    font-size: 36px;
+    font-size: 25px;
   }
   &__content {
-    min-height: calc(100vh - 178px);
+    min-height: calc(100vh - 98px);
     border-radius: 10px;
     margin-top: -2rem;
     background: white;
     color: black;
-    font-size: 2rem;
     &-data {
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 10%;
+      left: 4%;
+      
     }
   }
+}
+.card{
+  max-width: 18rem; 
+  min-height: 10rem;
+  background-color: #0450A1;
+  border-radius: 10px;
+}
+
+
+@media (min-width: 576px) {
+  
+}
+
+@media (min-width: 768px) {
+  
+}
+
+@media (min-width: 992px) {
+  
+}
+
+@media (min-width: 1200px) {
+ 
 }

@@ -15,18 +15,25 @@
       background: white;
       color: black;
       &-data {
-        top: 10%;
-        left: 4%;
+        
       }
     }
   }
-  .card{
-    width: 15rem; 
-    min-height: 10rem;
-    background-color: #0450A1;
-    border-radius: 10px;  
-  }
-  #ajout{
-    margin-left: auto;
-    font-size: 20px;
-    }
+  .titre, .ident{
+    background-color: #D9D9D9;
+   }
+   .titre .but1{
+    background-color: #0077F7;
+    border: none;
+    border-radius: 5px;
+   }
+   .titre .but2{
+    background-color: #D53343;
+    color: white;
+    border: none;
+    border-radius: 5px;
+   }
+   span{
+    font-weight:500;
+    text-decoration: underline;
+   }
