@@ -16,6 +16,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
 import { ProjetComponent } from './projet/projet.component';
+import { PartenaireComponent } from './components/partenaire/partenaire.component';
+import { ProjetEditComponent } from './components/projet-edit/projet-edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { ProjetComponent } from './projet/projet.component';
     HomeComponent,
     DashboardComponent,
     SidenavComponent,
-    ProjetComponent
+    ProjetComponent,
+    PartenaireComponent,
+    ProjetEditComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +43,8 @@ import { ProjetComponent } from './projet/projet.component';
     MatDividerModule,
     MatListModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

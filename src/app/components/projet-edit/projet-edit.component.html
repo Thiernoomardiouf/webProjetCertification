@@ -1,0 +1,80 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Projet</div>
+    <div class="page__content shadow p-3">
+      <div class="page__content-data">
+       
+        <div class="container">
+            <div class="titre text-center">
+                <h5>Formulaire de création d'un projet </h5>
+            </div>
+            <div class="form">
+                <form novalidate [formGroup]="projetForm" (ngSubmit)="saveProjet()">
+                    <div class="row mt-4">
+                      <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Enter le nom du projet" name="nom" formControlName="nom" id="Idnom">
+                      </div>
+                      <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Enter son code" formControlName="code" id="Idcoe" name="code">
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Enter le cout du projet" name="cout" formControlName="cout" id="Idcout">
+                        </div>
+                        <div class="col">
+                            <select class="form-select" name="presence" formControlName="presence" id="Idpresence">
+                                <option>Zone d'execution</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <input type="date" class="form-control" placeholder="Enter la date de début" name="date_debut" formControlName="date_debut" id="Idate_debut" >
+                        </div>
+                        <div class="col">
+                            <input type="date" class="form-control" placeholder="Enter la date de fin" name="date_fin" formControlName="date_fin" id="Idate_fin">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <input class="form-control" type="file" name="document" id="document" formControlName="document" id="document">
+                        </div>
+                        <div class="col">
+                            <select class="form-select" name="partenaire" formControlName="partenaire" id="Idpartenaire">
+                                <option>Partenaire</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                            <a mat-list-item class="text-end">Ajouter un partenaire</a>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <textarea class="form-control" placeholder="Enter la description du projet" name="description" formControlName="description" id="Idescription"></textarea>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <button class="btn btn-primary" 
+                            type="submit" [disabled]="projetForm.invalid">
+                            Enregistrer</button>
+                        </div>
+                    </div>
+                  </form>
+            </div>
+        </div>    
+        <!-- <pre>
+            {{ projetForm.value | json }}
+        </pre>  -->
+      
+    </div>
+</div>
+</div>
