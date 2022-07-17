@@ -10,5 +10,4 @@ export class Phase{
     document: string;
     montant: string;
     etat_realisation: boolean;
-    livrables: Livrable[];
 }

@@ -8,6 +8,9 @@
                 <h5>Formulaire de création d'un projet </h5>
             </div>
             <div class="form">
+                <div class="text-end">
+                    <a mat-list-item class="text-end" (click)="open(content)">Ajouter un partenaire</a>
+                </div>
                 <form novalidate [formGroup]="projetForm" (ngSubmit)="saveProjet()">
                     <div class="row mt-4">
                       <div class="col-md-6">
@@ -22,14 +25,11 @@
                             <input type="text" class="form-control" placeholder="Enter le cout du projet" name="cout" formControlName="cout" id="Idcout">
                         </div>
                         <div class="col">
-                            <select class="form-select" name="presence" formControlName="presence" id="Idpresence">
-                                <option>Zone d'execution</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select class="form-select" name="partenaire_id" formControlName="partenaire_id" id="Idpartenaire">
+                                <option value="">Partenaire</option>
+                                <option *ngFor="let partenaire of partenaires" [value]="partenaire.id">{{partenaire.nom}}</option>
                             </select>
+                            
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -38,22 +38,6 @@
                         </div>
                         <div class="col">
                             <input type="date" class="form-control" placeholder="Enter la date de fin" name="date_fin" formControlName="date_fin" id="Idate_fin">
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col">
-                            <input class="form-control" type="file" name="document" id="document" formControlName="document" id="document">
-                        </div>
-                        <div class="col">
-                            <select class="form-select" name="partenaire" formControlName="partenaire" id="Idpartenaire">
-                                <option>Partenaire</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                            <a mat-list-item class="text-end">Ajouter un partenaire</a>
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -70,6 +54,59 @@
                     </div>
                   </form>
             </div>
+
+            <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">Formulaire du partenaire</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form novalidate #f="ngForm" (ngSubmit)="savePartenaire(f.value)">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                              <input type="text" class="form-control" placeholder="Enter le nom" name="nom" ngModel>
+                            </div>
+                            <div class="col-md-6">
+                              <input type="text" class="form-control" placeholder="Enter son code" ngModel name="code">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                              <input type="text" class="form-control" placeholder="Enter l'adresse" name="adresse" ngModel>
+                            </div>
+                            <div class="col-md-6">
+                              <input type="text" class="form-control" placeholder="Enter le téléphone" ngModel name="telephone">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                              <input type="email" class="form-control" placeholder="Enter l'email" name="email" ngModel>
+                            </div>
+                            <div class="col-md-6">
+                              <input type="text" class="form-control" placeholder="Enter le contact" ngModel name="contact">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                              <input type="text" class="form-control" placeholder="Enter le site web" name="adresse_web" ngModel>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                    </div>
+
+                  </form>
+                </div>
+
+              </ng-template>
+              
         </div>    
         <!-- <pre>
             {{ projetForm.value | json }}

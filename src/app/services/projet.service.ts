@@ -19,9 +19,18 @@ export class ProjetService {
     return this.http.get(this.host + "/projets/" + id);
   }
 
-  public addProject(projet: Projet){
-     return this.http.post<any>(this.host + "/projets/add", projet
+  public addProject(data){
+     return this.http.post<any>(this.host + "/projets/add", data, {
+      headers: {
+        'Authorization': 'application/json',
+        'Content-Type': 'application/json',
+      }
+     }
      );
-
   }
+
+  public nbreProjet(){
+    return this.http.get(this.host + "/projets/nombre");
+  }
+
 }

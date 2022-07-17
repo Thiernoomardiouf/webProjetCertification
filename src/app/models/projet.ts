@@ -1,7 +1,4 @@
 import { Partenaire } from "./partenaire";
-import { Phase } from "./phase";
-import { Presence } from "./presence";
-
 export class Projet{
         
     id: number;
@@ -11,8 +8,6 @@ export class Projet{
     cout: string;
     date_debut: Date;
     date_fin: Date;
-    partenaire = new Partenaire();
-    phases: Phase[];
-    presences: Presence[];
+    partenaire_id = new Partenaire();
 
 }

@@ -19,6 +19,8 @@ import { ProjetComponent } from './projet/projet.component';
 import { PartenaireComponent } from './components/partenaire/partenaire.component';
 import { ProjetEditComponent } from './components/projet-edit/projet-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SidenavComponent,
     ProjetComponent,
     PartenaireComponent,
-    ProjetEditComponent
+    ProjetEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

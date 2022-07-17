@@ -12,8 +12,21 @@
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
     <mat-icon>dashboard</mat-icon> Projet
   </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 3 </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 4 </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 5 </a>
+
+  <div class="dropdown">
+    <a  mat-list-item class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+      <mat-icon>dashboard</mat-icon>
+      Dropdown link
+    </a>
+  
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+    </ul>
+  </div>
+
+  <a mat-list-item> <mat-icon>dashboard</mat-icon> Espace suivi et Exécution </a>
+  <a mat-list-item> <mat-icon>dashboard</mat-icon> Administration </a>
+  <a mat-list-item> <mat-icon>dashboard</mat-icon> Paramétrage </a>
   <a mat-list-item> <mat-icon>edit</mat-icon> Link 6 </a>
 </mat-nav-list>
