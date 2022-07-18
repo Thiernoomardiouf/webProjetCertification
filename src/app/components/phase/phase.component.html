@@ -1,0 +1,66 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Projet</div>
+    <div class="page__content shadow p-3">
+      <div class="page__content-data">
+       
+        <div class="container">
+            <div class="titre text-center">
+                <h5>Formulaire de création d'un projet </h5>
+            </div>
+            <div class="form">
+                <form novalidate [formGroup]="phaseForm" (ngSubmit)="savePhase()">
+                    <div class="row mt-4">
+                      <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Enter le nom de la phase" name="libelle" formControlName="libelle" id="Idlibelle">
+                      </div>
+                      <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Enter son code" formControlName="code" id="Idcoe" name="code">
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Enter le montant de cette phase" name="montant" formControlName="montant" id="Idmontant">
+                        </div>
+                        <div class="col">
+                            <select class="form-select" name="etat_realisation" formControlName="etat_realisation" id="Idetat">
+                                <option value="">Etat</option>
+                                <option value="1">Terminer</option>
+                                <option value="0">En cours</option>
+                            </select>  
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <input type="date" class="form-control" placeholder="Enter la date de début" name="date_debut" formControlName="date_debut" id="Idate_debut" >
+                        </div>
+                        <div class="col">
+                            <input type="date" class="form-control" placeholder="Enter la date de fin" name="date_fin" formControlName="date_fin" id="Idate_fin">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <textarea class="form-control" placeholder="Enter la description du projet" name="description" formControlName="description" id="Idescription"></textarea>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col"> 
+                            <select class="form-select" name="projet_id" formControlName="projet_id" id="Idprojet">
+                                <option value="">Projet</option>
+                                <option *ngFor="let projet of projets" [value]="projet.id">{{projet.nom}}</option>
+                            </select>  
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-primary" 
+                            type="submit" [disabled]="phaseForm.invalid">
+                            Enregistrer</button>
+                        </div>
+                    </div>
+                  </form>
+            </div>
+        </div>    
+            <pre>
+            {{ phaseForm.value | json }}
+        </pre>  
+    </div>
+</div>
+</div>

@@ -14,18 +14,16 @@
   </a>
 
   <div class="dropdown">
-    <a  mat-list-item class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <a  mat-list-item class="btn" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
       <mat-icon>dashboard</mat-icon>
-      Dropdown link
+      Espace suivi et Exécution
     </a>
-  
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li><a class="dropdown-item" routerLinkActive="list-item-active" routerLink="/phase">Editer une phase</a></li>
+      <li><a class="dropdown-item" routerLinkActive="list-item-active" routerLink="/livrable">Fournir un livrable</a></li>
     </ul>
   </div>
-
-  <a mat-list-item> <mat-icon>dashboard</mat-icon> Espace suivi et Exécution </a>
+ 
   <a mat-list-item> <mat-icon>dashboard</mat-icon> Administration </a>
   <a mat-list-item> <mat-icon>dashboard</mat-icon> Paramétrage </a>
   <a mat-list-item> <mat-icon>edit</mat-icon> Link 6 </a>

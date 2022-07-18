@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LivrableComponent } from './components/livrable/livrable.component';
 import { PartenaireComponent } from './components/partenaire/partenaire.component';
+import { PhaseComponent } from './components/phase/phase.component';
 import { ProjetEditComponent } from './components/projet-edit/projet-edit.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
@@ -12,7 +14,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'projet/:id' , component: ProjetComponent},
   { path: 'projetEddit', component: ProjetEditComponent},
-  { path: 'partenaire', component: PartenaireComponent}
+  { path: 'partenaire', component: PartenaireComponent},
+  { path: 'phase', component: PhaseComponent},
+  { path: 'livrable', component: LivrableComponent}
   //{path:'login', component: LoginComponent},
  // {path:'', redirectTo:'login', pathMatch: 'full'},
  // {path:'**',  redirectTo:'login'}

@@ -20,6 +20,8 @@ import { PartenaireComponent } from './components/partenaire/partenaire.componen
 import { ProjetEditComponent } from './components/projet-edit/projet-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PhaseComponent } from './components/phase/phase.component';
+import { LivrableComponent } from './components/livrable/livrable.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProjetComponent,
     PartenaireComponent,
     ProjetEditComponent,
+    PhaseComponent,
+    LivrableComponent,
   ],
   imports: [
     BrowserModule,
