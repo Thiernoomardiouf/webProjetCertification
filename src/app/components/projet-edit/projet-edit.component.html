@@ -2,7 +2,7 @@
     <div class="d-flex page__box p-3 mt-2">Projet</div>
     <div class="page__content shadow p-3">
       <div class="page__content-data">
-       
+
         <div class="container">
             <div class="titre text-center">
                 <h5>Formulaire de création d'un projet </h5>
@@ -25,11 +25,11 @@
                             <input type="text" class="form-control" placeholder="Enter le cout du projet" name="cout" formControlName="cout" id="Idcout">
                         </div>
                         <div class="col">
-                            <select class="form-select" name="partenaire_id" formControlName="partenaire_id" id="Idpartenaire">
+                            <select class="form-select" name="partenaire_id" formControlName="partenaire" id="Idpartenaire">
                                 <option value="">Partenaire</option>
-                                <option *ngFor="let partenaire of partenaires" [value]="partenaire.id">{{partenaire.nom}}</option>
+                                <option *ngFor="let partenaire of partenaires" [ngValue]="partenaire">{{partenaire.nom}}</option>
                             </select>
-                            
+
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -47,7 +47,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col">
-                            <button class="btn btn-primary" 
+                            <button class="btn btn-primary"
                             type="submit" [disabled]="projetForm.invalid">
                             Enregistrer</button>
                         </div>
@@ -106,12 +106,12 @@
                 </div>
 
               </ng-template>
-              
-        </div>    
+
+        </div>
         <!-- <pre>
             {{ projetForm.value | json }}
         </pre>  -->
-      
+
     </div>
 </div>
 </div>

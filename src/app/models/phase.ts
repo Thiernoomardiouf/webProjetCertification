@@ -1,4 +1,5 @@
 import { Livrable } from "./livrable";
+import { Projet } from "./projet";
 
 export class Phase{
     id: number;
@@ -7,7 +8,7 @@ export class Phase{
     description: string;
     date_debut: Date;
     date_fin: Date;
-    document: string;
     montant: string;
     etat_realisation: boolean;
+    projet: Projet;
 }

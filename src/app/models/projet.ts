@@ -1,6 +1,6 @@
 import { Partenaire } from "./partenaire";
 export class Projet{
-        
+
     id: number;
     code: string;
     nom: string;
@@ -8,6 +8,6 @@ export class Projet{
     cout: string;
     date_debut: Date;
     date_fin: Date;
-    partenaire_id = new Partenaire();
+    partenaire = new Partenaire();
 
 }

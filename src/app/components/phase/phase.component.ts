@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Projet } from 'src/app/models/projet';
 import { PhaseService } from 'src/app/services/phase.service';
 import { ProjetService } from 'src/app/services/projet.service';
 
@@ -19,8 +18,8 @@ export class PhaseComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder, private phaseService: PhaseService,
-    private projetService: ProjetService, private modalService: NgbModal, private router: Router
-  ) { 
+    private projetService: ProjetService
+  ) {
     this.getProjets();
   }
 
@@ -33,12 +32,11 @@ export class PhaseComponent implements OnInit {
       date_debut: new FormControl("", Validators.required),
       date_fin: new FormControl("", Validators.required),
       description: new FormControl("", Validators.required),
-      projet_id: ["", Validators.required]
+      projet: new FormControl("", Validators.required)
     });
   }
 
   public savePhase(){
-    console.log(this.phaseForm.value);
      this.phaseService.addPhase(this.phaseForm.value).subscribe((data) => {
       this.phaseList.push(data);
       this.phaseForm.reset();
@@ -49,7 +47,6 @@ export class PhaseComponent implements OnInit {
     this.projetService.getProjets()
     .subscribe(data=>{
       this.projets=data;
-      console.log(this.projets);
     },err=>{
       console.log(err);
     })

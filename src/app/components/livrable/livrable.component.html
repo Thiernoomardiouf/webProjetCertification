@@ -1,1 +1,58 @@
-<p>livrable works!</p>
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Projet</div>
+  <div class="page__content shadow p-3">
+    <div class="page__content-data">
+
+      <div class="container">
+          <div class="titre text-center">
+              <h5>Formulaire de création d'un projet </h5>
+          </div>
+          <div class="form">
+              <form novalidate [formGroup]="livrableForm" (ngSubmit)="saveLivrable()">
+                  <div class="row mt-4">
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" placeholder="Enter son code" formControlName="code" id="Idcoe" name="code">
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col">
+                          <input type="text" class="form-control" placeholder="Enter le libelle" name="libelle" formControlName="libelle" id="Idlibelle">
+                      </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col">
+                          <input type="text" class="form-control" placeholder="Choisir un dossier" name="chemin" formControlName="chemin" id="Idchemin" >
+                      </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col">
+                      <select class="form-select" name="projet" formControlName="projet" id="Idprojet">
+                          <option value="">Projet</option>
+                          <option *ngFor="let projet of projets" [ngValue]="projet">{{projet.nom}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col">
+                      <select class="form-select" name="phase" formControlName="phase" id="Idphase">
+                          <option value="">Phase</option>
+                          <option *ngFor="let phase of phases" [ngValue]="phase">{{phase.libelle}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col">
+                          <button class="btn btn-primary"
+                          type="submit" [disabled]="livrableForm.invalid">
+                          Enregistrer</button>
+                      </div>
+                  </div>
+                </form>
+          </div>
+
+      </div>
+
+
+  </div>
+</div>
+</div>

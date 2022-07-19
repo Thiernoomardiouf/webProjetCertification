@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Projet } from '../models/projet';
 
 @Injectable({
@@ -11,16 +12,16 @@ export class ProjetService {
 
   constructor(private http: HttpClient) { }
 
-  public getProjets(){
-    return this.http.get(this.host + "/projets");
+  public getProjets():Observable<Projet[]>{
+    return this.http.get<Projet[]>(this.host + "/projets");
   }
 
   public getProjet(id){
     return this.http.get(this.host + "/projets/" + id);
   }
 
-  public addProject(data){
-     return this.http.post<any>(this.host + "/projets/add", data, {
+  public addProject(projet: Projet):Observable<Projet>{
+    return this.http.post<Projet>(this.host + "/projets/add", projet, {
       headers: {
         'Authorization': 'application/json',
         'Content-Type': 'application/json',
@@ -29,8 +30,8 @@ export class ProjetService {
      );
   }
 
-  public nbreProjet(){
-    return this.http.get(this.host + "/projets/nombre");
+  public nbreProjet():Observable<Projet[]>{
+    return this.http.get<Projet[]>(this.host + "/projets/nombre");
   }
 
 }

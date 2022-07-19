@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Livrable } from '../models/livrable';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +20,8 @@ export class LivrableService {
     return this.http.get(this.host + "/livrables/" + id);
   }
 
-  public addLivrable(data){
-     return this.http.post<any>(this.host + "/livrables/add", data, {
+  public addLivrable(livrable: Livrable):Observable<Livrable>{
+    return this.http.post<Livrable>(this.host + "/livrables/add", livrable, {
       headers: {
         'Authorization': 'application/json',
         'Content-Type': 'application/json',

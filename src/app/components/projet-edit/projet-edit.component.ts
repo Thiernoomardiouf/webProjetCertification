@@ -25,7 +25,6 @@ export class ProjetEditComponent implements OnInit {
     private modalService: NgbModal, private router: Router
   ) {
     this.getPartenaires();
-    console.log(this.partenaires);
    }
 
   ngOnInit(): void {
@@ -36,12 +35,11 @@ export class ProjetEditComponent implements OnInit {
       date_debut: new FormControl("", Validators.required),
       date_fin: new FormControl("", Validators.required),
       description: new FormControl("", Validators.required),
-      partenaire_id: ["", Validators.required]
+      partenaire: new FormControl("", Validators.required)
     });
 }
 
 public saveProjet(){
-  console.log(this.projetForm.value);
    this.projetService.addProject(this.projetForm.value).subscribe((data) => {
     this.projetList.push(data);
     this.projetForm.reset();
@@ -51,8 +49,7 @@ public saveProjet(){
 public savePartenaire(data){
   this.partenaireService.addPartenaire(data)
   .subscribe(resp=>{
-    console.log(resp);
-    this.router.navigateByUrl("/projetEddit");
+    this.router.navigate(['/projetEddit']);
   },err=>{
     console.log(err);
   })
