@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Zone } from '../models/zone';
+import { Presence } from '../models/presence';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +12,20 @@ export class ZoneService {
 
   constructor(private http: HttpClient) { }
 
+  public getPresences(){
+    return this.http.get(this.host + "/presences");
+  }
+
+  public getPresence(id){
+    return this.http.get(this.host + "/presences/" + id);
+  }
+
   public getZones(){
-    return this.http.get(this.host + "/zones");
+    return this.http.get(this.host + "/zones/");
   }
 
-  public getZone(id){
-    return this.http.get(this.host + "/zones/" + id);
-  }
-
-  public addZone(zone: Zone):Observable<Zone>{
-    return this.http.post<Zone>(this.host + "/zones/add", zone, {
+  public addPresence(presence: Presence):Observable<Presence>{
+    return this.http.post<Presence>(this.host + "/presences/add", presence, {
       headers: {
         'Authorization': 'application/json',
         'Content-Type': 'application/json',

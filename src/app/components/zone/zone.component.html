@@ -1,1 +1,46 @@
-<p>zone works!</p>
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Espace suivi et exécution</div>
+  <div class="page__content shadow p-3">
+    <div class="page__content-data">
+
+      <div class="container p-5">
+          <div class="titre text-center">
+              <h5>Formulaire d'ajout des zones </h5>
+          </div>
+          <div class="form">
+              <form novalidate [formGroup]="zoneForm" (ngSubmit)="savePresence()">
+                  <div class="row mt-4">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Enter la zone d'éxecution " formControlName="siege" id="Idsiege" name="siege">
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col">
+                      <select class="form-select" name="zone" formControlName="zone" id="Idzone">
+                          <option value="">Zone</option>
+                          <option *ngFor="let zone of zones" [ngValue]="zone">{{zone.libelle}}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mt-3">
+                    <div class="col">
+                      <select class="form-select" name="projetz" formControlName="projetz" id="Idprojet">
+                          <option value="">Projet</option>
+                          <option *ngFor="let projet of projets" [ngValue]="projet">{{projet.nom}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col">
+                          <button class="btn btn-primary"
+                          type="submit" [disabled]="zoneForm.invalid">
+                          Enregistrer</button>
+                      </div>
+                  </div>
+                </form>
+          </div>
+      </div>
+  </div>
+</div>
+</div>

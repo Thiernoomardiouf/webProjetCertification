@@ -5,5 +5,5 @@ export class Presence{
     id: number;
     siege: string;
     zone: Zone;
-    projet: Projet;
+    projetz: Projet;
 }

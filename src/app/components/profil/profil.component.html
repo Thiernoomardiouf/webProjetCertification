@@ -1,1 +1,52 @@
-<p>profil works!</p>
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Espace suivi et exécution</div>
+  <div class="page__content shadow p-3">
+    <div class="page__content-data">
+
+      <div class="container p-5">
+          <div class="titre text-center">
+              <h5>Formulaire d'ajout des zones </h5>
+          </div>
+          <div class="form">
+              <form novalidate [formGroup]="profilForm" (ngSubmit)="saveProfil()">
+                  <div class="row mt-4">
+                    <div class="col">
+                      <select class="form-select" name="libelle" formControlName="libelle" id="Idprofil">
+                          <option value="">Profil</option>
+                          <option Value="directeur">Directeur</option>
+                          <option Value="secretaire">Secretaire</option>
+                          <option Value="chef de projet">Chef de projet</option>
+                          <option Value="employer">Employer</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col">
+                      <select class="form-select" name="membre" formControlName="membre" id="Idmembre">
+                          <option value="">Choisir un membre</option>
+                          <option *ngFor="let membre of membres" [ngValue]="membre">{{membre.prenom}} {{membre.nom}}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mt-3">
+                    <div class="col">
+                      <select class="form-select" name="projete" formControlName="projete" id="Idprojet">
+                          <option value="">Projet</option>
+                          <option *ngFor="let projet of projets" [ngValue]="projet">{{projet.nom}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col">
+                          <button class="btn btn-primary"
+                          type="submit" [disabled]="profilForm.invalid">
+                          Enregistrer</button>
+                      </div>
+                  </div>
+                </form>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
