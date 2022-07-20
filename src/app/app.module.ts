@@ -22,6 +22,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PhaseComponent } from './components/phase/phase.component';
 import { LivrableComponent } from './components/livrable/livrable.component';
+import { MembreComponent } from './components/membre/membre.component';
+import { ZoneComponent } from './components/zone/zone.component';
+import { ProfilComponent } from './components/profil/profil.component';
 
 
 @NgModule({
@@ -36,6 +39,9 @@ import { LivrableComponent } from './components/livrable/livrable.component';
     ProjetEditComponent,
     PhaseComponent,
     LivrableComponent,
+    MembreComponent,
+    ZoneComponent,
+    ProfilComponent,
   ],
   imports: [
     BrowserModule,

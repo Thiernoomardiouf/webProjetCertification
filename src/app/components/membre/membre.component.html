@@ -1,0 +1,59 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Projet</div>
+  <div class="page__content shadow p-3">
+    <div class="page__content-data">
+
+      <div class="container p-3">
+          <div class="titre text-center">
+              <h5>Formulaire de création d'un projet </h5>
+          </div>
+          <div class="form">
+              <form novalidate [formGroup]="membreForm" (ngSubmit)="saveMembre()">
+                  <div class="row mt-4">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Enter son nom" formControlName="nom" id="Idnom" name="nom">
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col">
+                          <input type="text" class="form-control" placeholder="Enter le prenom" name="prenom" formControlName="prenom" id="Idprenom">
+                      </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col">
+                          <input type="text" class="form-control" placeholder="Quel son numéro de téléphone" name="telephone" formControlName="telephone" id="Idtelephone" >
+                      </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col">
+                       <input type="text" class="form-control" placeholder="Quel son email" name="email" formControlName="email" id="Idemail" >
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col">
+                          <input type="text" class="form-control" placeholder="Quel est la matricule" name="matricule" formControlName="matricule" id="Idmatricule" >
+                      </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col">
+                          <input type="text" class="form-control" placeholder="Donner son login" name="login" formControlName="login" id="Idlogin" >
+                      </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col">
+                          <input type="password" class="form-control" placeholder="Quel son mot de passe" name="mot_de_passe" formControlName="mot_de_passe" id="Idpassword" >
+                      </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col">
+                          <button class="btn btn-primary"
+                          type="submit" [disabled]="membreForm.invalid">
+                          Enregistrer</button>
+                      </div>
+                  </div>
+                </form>
+          </div>
+      </div>
+  </div>
+</div>
+</div>

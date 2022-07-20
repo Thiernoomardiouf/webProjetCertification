@@ -12,14 +12,14 @@ import { ProjetService } from 'src/app/services/projet.service';
 export class LivrableComponent implements OnInit {
 
   phases;
-  projets;
+  projet;
 
   public livrableForm : FormGroup;
 
   constructor(private fb: FormBuilder, private phaseService: PhaseService,
               private livrableService: LivrableService, private projetService: ProjetService) {
                 this.getPhases();
-                this.getProjets();
+
               }
 
   ngOnInit(): void {
@@ -37,6 +37,17 @@ export class LivrableComponent implements OnInit {
     });
   }
 
+  public getLivrables(){
+    this.livrableService.getLivrables()
+    .subscribe(data=>{
+      console.log(data);
+    }
+    ,err=>{
+      console.log(err);
+    }
+    )
+  }
+
   public getPhases(){
     this.phaseService.getPhases()
     .subscribe(data=>{
@@ -46,13 +57,13 @@ export class LivrableComponent implements OnInit {
     })
   }
 
-  public getProjets(){
-    this.projetService.getProjets()
+  getProjet(id){
+    this.projetService.getProjet(id)
     .subscribe(data=>{
-      this.projets = data;
+      this.projet=data;
     },err=>{
-      console.log(err);
+     console.log(err);
     })
-  }
+ }
 
 }

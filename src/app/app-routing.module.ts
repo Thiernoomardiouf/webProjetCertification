@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LivrableComponent } from './components/livrable/livrable.component';
+import { MembreComponent } from './components/membre/membre.component';
 import { PartenaireComponent } from './components/partenaire/partenaire.component';
 import { PhaseComponent } from './components/phase/phase.component';
+import { ProfilComponent } from './components/profil/profil.component';
 import { ProjetEditComponent } from './components/projet-edit/projet-edit.component';
+import { ZoneComponent } from './components/zone/zone.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { ProjetComponent } from './projet/projet.component';
@@ -16,7 +19,10 @@ const routes: Routes = [
   { path: 'projetEddit', component: ProjetEditComponent},
   { path: 'partenaire', component: PartenaireComponent},
   { path: 'phase', component: PhaseComponent},
-  { path: 'livrable', component: LivrableComponent}
+  { path: 'livrable', component: LivrableComponent},
+  { path: 'membre', component: MembreComponent},
+  { path: 'zone', component: ZoneComponent},
+  { path: 'profil', component: ProfilComponent}
   //{path:'login', component: LoginComponent},
  // {path:'', redirectTo:'login', pathMatch: 'full'},
  // {path:'**',  redirectTo:'login'}
