@@ -34,4 +34,16 @@ export class ProjetService {
     return this.http.get<Projet[]>(this.host + "/projets/nombre");
   }
 
+  public nbrePhase(id):Observable<Projet[]>{
+    return this.http.get<Projet[]>(this.host + "/projets/nombrePhases/" + id);
+  }
+
+  public nbrePhaseEtat(id, etat):Observable<Projet[]>{
+    return this.http.get<Projet[]>(this.host + "/projets/nombrePhasesEtat/" + id + "/" + etat);
+  }
+
+  public nbreProjetEtat(etat):Observable<Projet[]>{
+    return this.http.get<Projet[]>(this.host + "/projets/nombreProjetEtat/" + etat);
+  }
+
 }
