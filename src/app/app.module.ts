@@ -26,6 +26,8 @@ import { MembreComponent } from './components/membre/membre.component';
 import { ZoneComponent } from './components/zone/zone.component';
 import { ProfilComponent } from './components/profil/profil.component';
 
+import { ChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [

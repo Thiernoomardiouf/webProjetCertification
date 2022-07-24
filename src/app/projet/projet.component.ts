@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {  Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProjetService } from '../services/projet.service';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-projet',
@@ -14,6 +15,8 @@ export class ProjetComponent implements OnInit {
   nbrephaseencours;
   nbrephasetermine;
 
+  PieChart;
+
   constructor(private projetService:ProjetService,
               private route: ActivatedRoute) {
                 let id = this.route.snapshot.params.id;
@@ -24,6 +27,21 @@ export class ProjetComponent implements OnInit {
               }
 
   ngOnInit(): void {
+    var ctxP = document.getElementById("pieChart");
+    var myPieChart = new Chart(ctxP, {
+      type: 'pie',
+      data: {
+        labels: ["Terminer", "En Cours"],
+        datasets: [{
+          data: [this.nbrephasetermine, this.nbrephaseencours],
+          backgroundColor: ["#0077F7", "#E9E6E6"],
+          hoverBackgroundColor: ["#FF5A5E", "#5AD3D1"]
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
   }
 
   getProjet(id){
