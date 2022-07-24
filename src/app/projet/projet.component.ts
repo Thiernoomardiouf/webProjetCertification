@@ -27,20 +27,38 @@ export class ProjetComponent implements OnInit {
               }
 
   ngOnInit(): void {
-    var ctxP = document.getElementById("pieChart");
-    var myPieChart = new Chart(ctxP, {
-      type: 'pie',
-      data: {
-        labels: ["Terminer", "En Cours"],
-        datasets: [{
-          data: [this.nbrephasetermine, this.nbrephaseencours],
-          backgroundColor: ["#0077F7", "#E9E6E6"],
-          hoverBackgroundColor: ["#FF5A5E", "#5AD3D1"]
-        }]
-      },
-      options: {
-        responsive: true
-      }
+    let id = this.route.snapshot.params.id;
+    this.projetService.nbrePhaseEtat(id, 1)
+    .subscribe(resp=>{
+      this.nbrephasetermine=resp;
+      this.projetService.nbrePhaseEtat(id, 0)
+      .subscribe(resp=>{
+        this.nbrephaseencours=resp;
+        this.PieChart = new Chart('pieChart', {
+          type: 'pie',
+          data: {
+            labels: ["Terminé", "En cours"],
+            datasets: [{
+              label: 'Nombre de phase',
+              data: [this.nbrephasetermine, this.nbrephaseencours],
+              backgroundColor: ["#0077F7", "#E9E6E6"],
+            }]
+          },
+          options: {
+            title: {
+              Text: 'Phase',
+              display: true,
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
+      });
     });
   }
 
