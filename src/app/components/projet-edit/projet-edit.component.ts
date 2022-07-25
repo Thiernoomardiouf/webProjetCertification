@@ -4,7 +4,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PartenaireService } from 'src/app/services/partenaire.service';
 import { ProjetService } from 'src/app/services/projet.service';
 import {ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Projet } from 'src/app/models/projet';
 
 @Component({
   selector: 'app-projet-edit',
@@ -16,15 +17,19 @@ export class ProjetEditComponent implements OnInit {
   projetList: any = []
   partenaires;
   closeResult: string;
+  projet;
+  id;
 
   public projetForm : FormGroup;
 
   constructor(
     private fb: FormBuilder, private projetService: ProjetService,
-    private partenaireService: PartenaireService,
+    private partenaireService: PartenaireService, private route: ActivatedRoute,
     private modalService: NgbModal, private router: Router
   ) {
     this.getPartenaires();
+    this.id = this.route.snapshot.params.id;
+     this.getProjet(this.id);
    }
 
   ngOnInit(): void {
@@ -40,9 +45,35 @@ export class ProjetEditComponent implements OnInit {
 }
 
 public saveProjet(){
+   if(this.projetForm.valid){
+    if(this.projetForm.dirty){
+      const p: Projet = {
+        ...this.projetForm.value,
+        id: this.id};
+      if(p.id==0){
+        this.projetService.addProject(p)
+        .subscribe(resp=>{
+          this.router.navigate(['/dashboard']);
+        }),err=>{
+          console.log(err);
+        }
+      }else{
+        this.projetService.updateProject(p,this.id)
+        .subscribe(resp=>{
+          this.projetForm.reset();
+          this.router.navigate(['/projet/'+this.id]);
+        }),err=>{
+          console.log(err);
+        }
+      }
+    }
+   }
+
    this.projetService.addProject(this.projetForm.value).subscribe((data) => {
     this.projetList.push(data);
     this.projetForm.reset();
+    this.router.navigate(['/dashboard']);
+
    });
 }
 
@@ -62,6 +93,15 @@ public getPartenaires(){
   },err=>{
     console.log(err);
   })
+}
+
+public getProjet(id){
+  this.projetService.getProjet(id)
+  .subscribe(data=>{
+    this.projetForm.patchValue(data);
+  }),err=>{
+    console.log(err);
+  }
 }
 
 open(content) {

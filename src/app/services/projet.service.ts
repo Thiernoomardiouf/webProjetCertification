@@ -30,6 +30,20 @@ export class ProjetService {
      );
   }
 
+  public updateProject(projet: Projet, id):Observable<Projet>{
+    return this.http.put<Projet>(this.host + "/projets/update/" + id, projet, {
+      headers: {
+        'Authorization': 'application/json',
+        'Content-Type': 'application/json',
+      }
+      }
+      );
+  }
+
+  public deleteProject(id){
+    return this.http.delete(this.host + "/projets/delete/" + id);
+  }
+
   public nbreProjet():Observable<Projet[]>{
     return this.http.get<Projet[]>(this.host + "/projets/nombre");
   }

@@ -1,5 +1,5 @@
 import {  Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProjetService } from '../services/projet.service';
 import { Chart } from 'chart.js';
 
@@ -18,7 +18,7 @@ export class ProjetComponent implements OnInit {
   PieChart;
 
   constructor(private projetService:ProjetService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute, private router: Router) {
                 let id = this.route.snapshot.params.id;
                 this.getProjet(id);
                 this.nbrePhase(id);
@@ -79,6 +79,18 @@ export class ProjetComponent implements OnInit {
       console.log(err);
     })
   }
+
+  public deleteprojet(id){
+    if(confirm("Voulez-vous vraiment supprimer l'utilisateur")){
+      this.projetService.deleteProject(id)
+      .subscribe(resp=>{
+        this.router.navigate(['/dashboard']);
+      }),err=>{
+        console.log(err);
+      }  
+    }   
+  } 
+
   public nbrePhaseEtat(id, etat){
     if(etat==1){
       this.projetService.nbrePhaseEtat(id, etat)

@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'projet/:id' , component: ProjetComponent},
   { path: 'projetEddit', component: ProjetEditComponent},
+  { path: 'projetUpdate/:id', component: ProjetEditComponent},
   { path: 'partenaire', component: PartenaireComponent},
   { path: 'phase', component: PhaseComponent},
   { path: 'livrable', component: LivrableComponent},

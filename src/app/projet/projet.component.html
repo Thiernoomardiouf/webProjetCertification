@@ -9,10 +9,10 @@
                     <h5>Résumé du projet</h5>
                 </div>
                 <div class="col mt-1 ">
-                    <button class="but1">Modifier le projet</button>
+                   <a class="but1" mat-list-item [routerLink]="['/projetUpdate', projet.id]">Modifier le projet</a>
                 </div>
                 <div class="col mt-1">
-                    <button class="but2">Fermer le projet</button>  
+                  <a class="but2 text-danger" mat-list-item (click)="deleteprojet(projet.id)">Fermer le projet </a>
                 </div>
             </div>
             <div class="row mt-4">
