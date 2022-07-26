@@ -26,7 +26,7 @@ import { MembreComponent } from './components/membre/membre.component';
 import { ZoneComponent } from './components/zone/zone.component';
 import { ProfilComponent } from './components/profil/profil.component';
 
-import { ChartsModule } from 'ng2-charts';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -60,6 +60,7 @@ import { ChartsModule } from 'ng2-charts';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

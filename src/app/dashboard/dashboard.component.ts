@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
   constructor(private projService: ProjetService, private router:Router) { }
 
   projets;
-
+  p;
   ngOnInit(): void {
     this.projService.getProjets()
     .subscribe(data=>{

@@ -1,9 +1,16 @@
 <div class="container-fluid page">
   <div class="d-flex page__box p-3 mt-2">Projet <div id="ajout"><a mat-list-item routerLink="/projetEddit">Ajouter un projet</a></div></div>
   <div class="page__content shadow p-3 position-relative">
+    <div class="d-flex flex-row-reverse">
+      <pagination-controls class="pagination" 
+        previousLabel="Précédent"
+        nextLabel="Suivant"
+        (pageChange)="p = $event">
+      </pagination-controls>
+    </div>
     <div class="page__content-data position-absolute text-center">
      <div class="row row-cols-1 row-cols-md-3">
-      <div class="col mb-4" *ngFor="let item of projets">
+      <div class="col mb-4" *ngFor="let item of projets | paginate:{itemsPerPage: 6, currentPage: p}">
         <div class="card text-white">
           <div class="card-header">Code: {{item.code}}</div>
           <div class="card-body">
