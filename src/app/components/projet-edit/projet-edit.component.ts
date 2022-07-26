@@ -49,8 +49,9 @@ public saveProjet(){
     if(this.projetForm.dirty){
       const p: Projet = {
         ...this.projetForm.value,
-        id: this.id};
-      if(p.id==0){
+        id: this.id
+        };
+      if(p.id==null){
         this.projetService.addProject(p)
         .subscribe(resp=>{
           this.router.navigate(['/dashboard']);
@@ -68,13 +69,6 @@ public saveProjet(){
       }
     }
    }
-
-   this.projetService.addProject(this.projetForm.value).subscribe((data) => {
-    this.projetList.push(data);
-    this.projetForm.reset();
-    this.router.navigate(['/dashboard']);
-
-   });
 }
 
 public savePartenaire(data){
