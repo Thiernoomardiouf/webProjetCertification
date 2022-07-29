@@ -29,7 +29,7 @@ export class ProjetEditComponent implements OnInit {
   ) {
     this.getPartenaires();
     this.id = this.route.snapshot.params.id;
-     this.getProjet(this.id);
+    this.getProjet(this.id);
    }
 
   ngOnInit(): void {

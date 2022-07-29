@@ -27,6 +27,7 @@ import { ZoneComponent } from './components/zone/zone.component';
 import { ProfilComponent } from './components/profil/profil.component';
 
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PhaseDetailsComponent } from './components/phase-details/phase-details.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MembreComponent,
     ZoneComponent,
     ProfilComponent,
+    PhaseDetailsComponent,
   ],
   imports: [
     BrowserModule,

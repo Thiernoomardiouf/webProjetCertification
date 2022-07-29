@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { LivrableService } from 'src/app/services/livrable.service';
 import { PhaseService } from 'src/app/services/phase.service';
 import { ProjetService } from 'src/app/services/projet.service';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-livrable',
@@ -13,8 +15,12 @@ export class LivrableComponent implements OnInit {
 
   phases;
   projet;
+  livrables;
+  selectedPhase;
 
   public livrableForm : FormGroup;
+
+  @ViewChild('htmlData') htmlData!: ElementRef;
 
   constructor(private fb: FormBuilder, private phaseService: PhaseService,
               private livrableService: LivrableService, private projetService: ProjetService) {
@@ -31,16 +37,30 @@ export class LivrableComponent implements OnInit {
     });
   }
 
+  public openPDF(): void {
+    let DATA: any = document.getElementById('htmlData');
+    html2canvas(DATA).then((canvas) => {
+      let fileWidth = 208;
+      let fileHeight = (canvas.height * fileWidth) / canvas.width;
+      const FILEURI = canvas.toDataURL('image/png');
+      let PDF = new jsPDF('p', 'mm', 'a4');
+      let position = 0;
+      PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
+      PDF.save('angular-demo.pdf');
+    });
+  }
+
   public saveLivrable(){
     this.livrableService.addLivrable(this.livrableForm.value).subscribe((data) => {
       this.livrableForm.reset();
+      this.openPDF();
     });
   }
 
   public getLivrables(){
     this.livrableService.getLivrables()
     .subscribe(data=>{
-      console.log(data);
+      this.livrables=data;
     }
     ,err=>{
       console.log(err);
@@ -52,6 +72,14 @@ export class LivrableComponent implements OnInit {
     this.phaseService.getPhases()
     .subscribe(data=>{
       this.phases = data;
+    },err=>{
+      console.log(err);
+    })
+  }
+
+  public getPhase(id){
+    this.phaseService.getPhase(id)
+    .subscribe(data=>{
     },err=>{
       console.log(err);
     })

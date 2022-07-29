@@ -1,0 +1,71 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Projet</div>
+  <div class="page__content shadow p-3">
+    <div class="page__content-data">
+
+      <div class="container">
+          <div class="row titre">
+              <div class="col-md-6 mt-1">
+                  <h5>Résumé de la phase</h5>
+              </div>
+              <div class="col mt-1 ">
+                 <a class="but1" mat-list-item [routerLink]="['/phaseUpdate', phase.id]">Modifier la phase</a>
+              </div>
+              <div class="col mt-1">
+                <a class="but2 text-danger" mat-list-item (click)="imprimerPhase()">Imprimer la phase </a>
+              </div>
+          </div>
+          <div class="container" id="htmlData">
+              <div class="row mt-4">
+                  <div class="col ident" >
+                    Identification de la phase
+                  </div>
+              </div>
+              <div class="row mt-4">
+                  <div class="col-md-8" >
+                    <div class="row">
+                      <div class="col">
+                          <span class="font-weight-bold p-2">Intitulé de la phase :</span>{{phase.libelle}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                          <span class="font-weight-bold p-2">Code de la phase :</span>{{phase.code}}
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                          <span class="font-weight-bold p-2">Date de début :</span>{{phase.date_debut | date: 'dd/MM/yyyy' }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                          <span class="font-weight-bold p-2">Date de fin :</span>{{phase.date_fin | date: 'dd/MM/yyyy' }}
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                          <span class="font-weight-bold p-2">Cout du projet :</span>{{phase.montant}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                          <span class="font-weight-bold p-2">Description :</span> {{phase.description}}
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col ident ">
+                  Avancement de la phase
+                </div>
+                <div class="p-2" *ngIf="phase.etat_realisation; else elseBlock">La phase de réalisation est déja éxecuté.</div>
+                <ng-template #elseBlock>
+                  <div class="p-2">La phase de réalisation est en cours de traitement.</div>
+                </ng-template>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Phase } from '../models/phase';
 
 @Injectable({
@@ -27,5 +28,19 @@ public host:string = 'http://localhost:8080/gestionprojets/v1';
       }
      }
      );
+  }
+
+  public updatePhase(phase: Phase, id):Observable<Phase>{
+    return this.http.put<Phase>(this.host + "/phases/update/" + id, phase, {
+      headers: {
+        'Authorization': 'application/json',
+        'Content-Type': 'application/json',
+      }
+      }
+      );
+  }
+
+  public deletePhase(id){
+    return this.http.delete(this.host + "/phases/delete/" + id);
   }
 }

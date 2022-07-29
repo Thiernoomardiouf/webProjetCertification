@@ -79,12 +79,11 @@
                 <div class="col-md-4">
                   Les différentes phases du projet:
                   <ol>
-                    <li *ngFor="let item of projet.phases">{{item.libelle}}</li>
+                    <li *ngFor="let item of projet.phases">{{item.libelle}} <span class="material-icons green-color" (click)="onclickPhase(item.id)">details </span></li>
                   </ol>
                 </div>
             </div>
         </div>
-
       </div>
     </div>
   </div>

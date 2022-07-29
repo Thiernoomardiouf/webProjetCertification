@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Projet } from 'src/app/models/projet';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Phase } from 'src/app/models/phase';
 import { PhaseService } from 'src/app/services/phase.service';
 import { ProjetService } from 'src/app/services/projet.service';
 
@@ -13,14 +14,18 @@ export class PhaseComponent implements OnInit {
 
   phaseList: any = []
   projets;
+  id;
 
   public phaseForm: FormGroup;
 
   constructor(
     private fb: FormBuilder, private phaseService: PhaseService,
-    private projetService: ProjetService
+    private projetService: ProjetService, private route: ActivatedRoute,
+    private router: Router
   ) {
     this.getProjets();
+    this.id = this.route.snapshot.params.id;
+    this.getPhase(this.id);
   }
 
   ngOnInit(): void {
@@ -37,16 +42,45 @@ export class PhaseComponent implements OnInit {
   }
 
   public savePhase(){
-     this.phaseService.addPhase(this.phaseForm.value).subscribe((data) => {
-      this.phaseList.push(data);
-      this.phaseForm.reset();
-     });
+    if(this.phaseForm.valid){
+      if(this.phaseForm.dirty){
+        const p: Phase = {
+          ...this.phaseForm.value,
+          id: this.id
+          };
+        if(p.id==null){
+          this.phaseService.addPhase(p)
+          .subscribe(resp=>{
+            this.router.navigate(['/dashboard']);
+          }),err=>{
+            console.log(err);
+          }
+        }else{
+          this.phaseService.updatePhase(p,this.id)
+          .subscribe(resp=>{
+            this.phaseForm.reset();
+            this.router.navigate(['/phase/'+this.id]);
+          }),err=>{
+            console.log(err);
+          }
+        }
+      }
+     }
   }
 
   public getProjets(){
     this.projetService.getProjets()
     .subscribe(data=>{
       this.projets=data;
+    },err=>{
+      console.log(err);
+    })
+  }
+
+  public getPhase(id){
+    this.phaseService.getPhase(id)
+    .subscribe(data=>{
+      this.phaseForm.patchValue(data);
     },err=>{
       console.log(err);
     })

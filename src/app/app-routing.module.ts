@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LivrableComponent } from './components/livrable/livrable.component';
 import { MembreComponent } from './components/membre/membre.component';
 import { PartenaireComponent } from './components/partenaire/partenaire.component';
+import { PhaseDetailsComponent } from './components/phase-details/phase-details.component';
 import { PhaseComponent } from './components/phase/phase.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { ProjetEditComponent } from './components/projet-edit/projet-edit.component';
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'projetUpdate/:id', component: ProjetEditComponent},
   { path: 'partenaire', component: PartenaireComponent},
   { path: 'phase', component: PhaseComponent},
+  { path: 'phase/:id', component: PhaseDetailsComponent},
+  { path: 'phaseUpdate/:id', component: PhaseComponent},
   { path: 'livrable', component: LivrableComponent},
   { path: 'membre', component: MembreComponent},
   { path: 'zone', component: ZoneComponent},

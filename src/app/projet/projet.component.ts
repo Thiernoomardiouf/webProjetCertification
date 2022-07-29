@@ -87,9 +87,9 @@ export class ProjetComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       }),err=>{
         console.log(err);
-      }  
-    }   
-  } 
+      }
+    }
+  }
 
   public nbrePhaseEtat(id, etat){
     if(etat==1){
@@ -107,6 +107,11 @@ export class ProjetComponent implements OnInit {
         console.log(err);
       })
     }
+  }
+
+  public onclickPhase(id){
+    this.router.navigate(['/phase/'+id]);
+    console.log(id);
   }
 
 }
