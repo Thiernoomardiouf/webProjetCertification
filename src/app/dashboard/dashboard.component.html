@@ -2,7 +2,7 @@
   <div class="d-flex page__box p-3 mt-2">Projet <div id="ajout"><a mat-list-item routerLink="/projetEddit">Ajouter un projet</a></div></div>
   <div class="page__content shadow p-3 position-relative">
     <div class="d-flex flex-row-reverse">
-      <pagination-controls class="pagination" 
+      <pagination-controls class="pagination"
         previousLabel="Précédent"
         nextLabel="Suivant"
         (pageChange)="p = $event">
@@ -15,8 +15,8 @@
           <div class="card-header">Code: {{item.code}}</div>
           <div class="card-body">
             <h5 class="card-title">{{item.nom}}</h5>
-            <p class="card-text">Partenaire: {{item.partenaire.nom}}</p> 
-            <a mat-list-item (click)="onGetProjet(item)">Voir plus</a> 
+            <p class="card-text">Partenaire: {{item.partenaire.nom}}</p>
+            <a mat-list-item (click)="onGetProjet(item)">Voir plus</a>
           </div>
         </div>
       </div>

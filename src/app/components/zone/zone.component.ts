@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProjetService } from 'src/app/services/projet.service';
 import { ZoneService } from 'src/app/services/zone.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-zone',
@@ -32,6 +33,7 @@ export class ZoneComponent implements OnInit {
  public savePresence(){
    this.zoneService.addPresence(this.zoneForm.value).subscribe((data) => {
      this.zoneForm.reset();
+      Swal.fire('Success','Presence ajoutée avec succès', 'success');
    }
    );
  }

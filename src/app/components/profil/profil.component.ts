@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MembreService } from 'src/app/services/membre.service';
 import { ProfilService } from 'src/app/services/profil.service';
 import { ProjetService } from 'src/app/services/projet.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profil',
@@ -34,6 +35,7 @@ export class ProfilComponent implements OnInit {
   public saveProfil(){
     this.profilService.addProfil(this.profilForm.value).subscribe((data) => {
       this.profilForm.reset();
+      Swal.fire('Success','Profil ajouté avec succès', 'success');
     }
     );
   }

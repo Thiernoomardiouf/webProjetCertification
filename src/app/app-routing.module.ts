@@ -10,6 +10,7 @@ import { ProjetEditComponent } from './components/projet-edit/projet-edit.compon
 import { ZoneComponent } from './components/zone/zone.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { ProjetComponent } from './projet/projet.component';
 
 const routes: Routes = [
@@ -26,8 +27,8 @@ const routes: Routes = [
   { path: 'livrable', component: LivrableComponent},
   { path: 'membre', component: MembreComponent},
   { path: 'zone', component: ZoneComponent},
-  { path: 'profil', component: ProfilComponent}
-  //{path:'login', component: LoginComponent},
+  { path: 'profil', component: ProfilComponent},
+  { path:'login', component: LoginComponent},
  // {path:'', redirectTo:'login', pathMatch: 'full'},
  // {path:'**',  redirectTo:'login'}
 ];

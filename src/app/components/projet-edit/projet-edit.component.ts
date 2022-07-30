@@ -6,6 +6,7 @@ import { ProjetService } from 'src/app/services/projet.service';
 import {ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Projet } from 'src/app/models/projet';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-projet-edit',
@@ -54,6 +55,7 @@ public saveProjet(){
       if(p.id==null){
         this.projetService.addProject(p)
         .subscribe(resp=>{
+          Swal.fire('Success','Le projet est ajouté avec succès', 'success');
           this.router.navigate(['/dashboard']);
         }),err=>{
           console.log(err);
@@ -61,6 +63,7 @@ public saveProjet(){
       }else{
         this.projetService.updateProject(p,this.id)
         .subscribe(resp=>{
+          Swal.fire('Success','Le projet est modifié avec succès', 'success');
           this.projetForm.reset();
           this.router.navigate(['/projet/'+this.id]);
         }),err=>{

@@ -28,6 +28,7 @@ import { ProfilComponent } from './components/profil/profil.component';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PhaseDetailsComponent } from './components/phase-details/phase-details.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { PhaseDetailsComponent } from './components/phase-details/phase-details.
     ZoneComponent,
     ProfilComponent,
     PhaseDetailsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

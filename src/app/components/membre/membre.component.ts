@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MembreService } from 'src/app/services/membre.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-membre',
@@ -28,6 +29,7 @@ export class MembreComponent implements OnInit {
   public saveMembre(){
     this.membresService.addMembre(this.membreForm.value).subscribe((data) => {
       this.membreForm.reset();
+      Swal.fire('Success','Membre ajouté avec succès', 'success');
     }
     );
   }
