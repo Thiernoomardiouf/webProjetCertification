@@ -29,6 +29,7 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PhaseDetailsComponent } from './components/phase-details/phase-details.component';
 import { LoginComponent } from './login/login.component';
+import { authInterceptorProviders } from './services/auth.interceptor';
 
 
 @NgModule({
@@ -66,7 +67,7 @@ import { LoginComponent } from './login/login.component';
     NgbModule,
     NgxPaginationModule,
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -18,7 +18,7 @@
                     <div class="col">
                       <select class="form-select" name="membre" formControlName="membre" id="Idmembre">
                           <option value="">Choisir un membre</option>
-                          <option *ngFor="let membre of membres" [ngValue]="membre">{{membre.prenom}} {{membre.nom}}</option>
+                          <option *ngFor="let membre of membres" [ngValue]="membre">{{membre.firstName}} {{membre.lastName}}</option>
                       </select>
                     </div>
                   </div>

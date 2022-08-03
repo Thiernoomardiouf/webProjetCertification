@@ -16,13 +16,14 @@ export class MembreComponent implements OnInit {
 
   ngOnInit(): void {
     this.membreForm = this.fb.group({
-      nom: new FormControl("", Validators.required),
-      prenom: new FormControl("", Validators.required),
+      lastName: new FormControl("", Validators.required),
+      firstName: new FormControl("", Validators.required),
       email: new FormControl("", Validators.required),
       telephone: new FormControl("", Validators.required),
       matricule: new FormControl("", Validators.required),
-      login: new FormControl("", Validators.required),
-      mot_de_passe: new FormControl("", Validators.required),
+      username: new FormControl("", Validators.required),
+      password: new FormControl("", Validators.required),
+      enabled: new FormControl(1, Validators.required),
     });
   }
 

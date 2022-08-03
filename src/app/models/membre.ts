@@ -1,10 +1,11 @@
 export class Membre{
     id: number;
     matricule: string;
-    nom: string;
-    prenom: string;
+    lastName: string;
+    firstName: string;
     telephone: string;
     email: string;
-    login: string;
-    mot_de_passe: string;
+    username: string;
+    password: string;
+    enabled: boolean;
 }
