@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Phase } from 'src/app/models/phase';
 import { PhaseService } from 'src/app/services/phase.service';
 import { ProjetService } from 'src/app/services/projet.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-phase',
@@ -51,6 +52,8 @@ export class PhaseComponent implements OnInit {
         if(p.id==null){
           this.phaseService.addPhase(p)
           .subscribe(resp=>{
+            Swal.fire('Success','La phase a été ajouté avec succès', 'success');
+            this.phaseForm.reset();
             this.router.navigate(['/dashboard']);
           }),err=>{
             console.log(err);
@@ -58,6 +61,7 @@ export class PhaseComponent implements OnInit {
         }else{
           this.phaseService.updatePhase(p,this.id)
           .subscribe(resp=>{
+            Swal.fire('Success','La phase est modifié avec succès', 'success');
             this.phaseForm.reset();
             this.router.navigate(['/phase/'+this.id]);
           }),err=>{

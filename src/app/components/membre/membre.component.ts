@@ -23,7 +23,7 @@ export class MembreComponent implements OnInit {
       matricule: new FormControl("", Validators.required),
       username: new FormControl("", Validators.required),
       password: new FormControl("", Validators.required),
-      enabled: new FormControl(1, Validators.required),
+      enabled: new FormControl("", Validators.required),
     });
   }
 

@@ -30,6 +30,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { PhaseDetailsComponent } from './components/phase-details/phase-details.component';
 import { LoginComponent } from './login/login.component';
 import { authInterceptorProviders } from './services/auth.interceptor';
+import { RoleComponent } from './components/role/role.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { authInterceptorProviders } from './services/auth.interceptor';
     ProfilComponent,
     PhaseDetailsComponent,
     LoginComponent,
+    RoleComponent,
   ],
   imports: [
     BrowserModule,

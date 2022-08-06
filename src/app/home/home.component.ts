@@ -31,13 +31,13 @@ export class HomeComponent implements OnInit {
         this.PieChart = new Chart('pieChart', {
           type: 'pie',
           data: {
-            labels: ["Terminé", "En cours"],
+            labels: ["Terminé", "En cours"],  
             datasets: [{
               label: 'Nombre de projet',
               data: [this.nbreprojettermine, this.nbreprojetencours],
-              backgroundColor: ["#0077F7", "#E9E6E6"],
+              backgroundColor: ["#0077F7", "#E9E6E6"], 
             }]
-          },
+          }, 
           options: {
             title: {
               Text: 'Phase',

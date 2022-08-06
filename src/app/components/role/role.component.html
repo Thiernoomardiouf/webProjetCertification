@@ -1,0 +1,41 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Administration</div>
+  <div class="page__content shadow p-3">
+    <div class="page__content-data">
+
+      <div class="container p-5">
+          <div class="titre text-center">
+              <h5>Formulaire d'attribution de roles</h5>
+          </div>
+          <div class="form">
+              <form novalidate [formGroup]="roleForm" (ngSubmit)="saveRoleMembre()">
+                  <div class="row mt-4">
+                    <div class="col">
+                      <select class="form-select" name="role" formControlName="membre" id="Idrole">
+                          <option value="">Choisir un membre</option>
+                          <option *ngFor="let membre of membres" [ngValue]="membre">{{membre.firstName}} {{membre.lastName}}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mt-3">  
+                    <div class="col">
+                      <select class="form-select" name="role" formControlName="role" id="Idrole">
+                          <option value="">Choisir un role</option>
+                          <option *ngFor="let role of roles" [ngValue]="role">{{role.libelle}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col">
+                          <button class="btn btn-primary"
+                          type="submit" [disabled]="roleForm.invalid">
+                          Enregistrer</button>
+                      </div>
+                  </div>
+                </form>
+          </div>
+      </div>
+  </div>
+</div>
+</div>

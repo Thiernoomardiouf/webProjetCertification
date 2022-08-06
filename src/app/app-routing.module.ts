@@ -7,6 +7,7 @@ import { PhaseDetailsComponent } from './components/phase-details/phase-details.
 import { PhaseComponent } from './components/phase/phase.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { ProjetEditComponent } from './components/projet-edit/projet-edit.component';
+import { RoleComponent } from './components/role/role.component';
 import { ZoneComponent } from './components/zone/zone.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminGuard } from './guards/admin.guard';
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'membre', component: MembreComponent,  pathMatch: 'full', canActivate: [AdminGuard]},
   { path: 'zone', component: ZoneComponent, pathMatch: 'full', canActivate: [AdminGuard]},
   { path: 'profil', component: ProfilComponent, pathMatch: 'full', canActivate: [AdminGuard]},
+  { path: 'role', component: RoleComponent, pathMatch: 'full', canActivate: [AdminGuard]},
   { path:'login', component: LoginComponent},
  // {path:'', redirectTo:'login', pathMatch: 'full'},
   {path:'**',  redirectTo:'login'}
