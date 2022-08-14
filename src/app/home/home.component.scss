@@ -17,30 +17,41 @@
     &-data {
       top: 10%;
       left: 4%;
-      
+
     }
   }
 }
 .card{
-  max-width: 18rem; 
-  min-height: 10rem;
   background-color: #0450A1;
   border-radius: 10px;
 }
 
-
 @media (min-width: 576px) {
-  
-}
+  .diagramme{
+    width: 50%;
+  }
+  .card{
+    max-width: 14rem;
+    min-height: 6rem;
+  }
 
+}
 @media (min-width: 768px) {
-  
+  .card{
+    max-width: 16rem;
+    min-height: 8rem;
+  }
 }
-
 @media (min-width: 992px) {
-  
+  .card{
+    max-width: 18rem;
+    min-height: 10rem;
+  }
 }
-
 @media (min-width: 1200px) {
- 
+  .diagramme{
+    width: 50%;
+  }
+
 }
+ 

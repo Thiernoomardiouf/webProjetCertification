@@ -18,7 +18,7 @@ export class MembreComponent implements OnInit {
     this.membreForm = this.fb.group({
       lastName: new FormControl("", Validators.required),
       firstName: new FormControl("", Validators.required),
-      email: new FormControl("", Validators.required),
+      email: new FormControl("", [Validators.required, Validators.email]),
       telephone: new FormControl("", Validators.required),
       matricule: new FormControl("", Validators.required),
       username: new FormControl("", Validators.required),

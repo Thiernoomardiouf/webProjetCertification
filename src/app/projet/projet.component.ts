@@ -2,6 +2,7 @@ import {  Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProjetService } from '../services/projet.service';
 import { Chart } from 'chart.js';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-projet',
@@ -24,7 +25,7 @@ export class ProjetComponent implements OnInit {
                 this.nbrePhase(id);
                 this.nbrePhaseEtat(id, 0);
                 this.nbrePhaseEtat(id, 1);
-              }
+              } 
 
   ngOnInit(): void {
     let id = this.route.snapshot.params.id;
@@ -81,14 +82,26 @@ export class ProjetComponent implements OnInit {
   }
 
   public deleteprojet(id){
-    if(confirm("Voulez-vous vraiment supprimer l'utilisateur")){
-      this.projetService.deleteProject(id)
+    Swal.fire({
+      title: 'Etes-vous sûr?',
+      text: "Vous ne pourrez pas récupérer ce projet!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui, supprimer!'
+    }).then((result) => {
+  //  if(confirm("Voulez-vous vraiment fermer ce projet ?")){
+      if(result.isConfirmed){
+        this.projetService.deleteProject(id)
       .subscribe(resp=>{
         this.router.navigate(['/dashboard']);
       }),err=>{
         console.log(err);
       }
-    }
+      }
+    });
+
   }
 
   public nbrePhaseEtat(id, etat){
